@@ -7,6 +7,7 @@ import 'package:dealsdray/view/home_screen/home.dart';
 import 'package:dealsdray/bloc/auth_bloc/auth_bloc.dart';
 import 'package:dealsdray/view/Initial_screen/initial_screen.dart';
 import 'package:dealsdray/view/registration_screen/registration.dart';
+import 'package:dealsdray/view/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -50,25 +51,32 @@ class MyApp extends StatelessWidget {
   }
 
   final GoRouter _router = GoRouter(
-    routes: <RouteBase>[
-      GoRoute(
-        path: '/',
-        builder: (BuildContext context, GoRouterState state) {
-          return  const PhoneNumberScreen();
-        },
-      ),
-      GoRoute(
-        path: '/signup',
-        builder: (BuildContext context, GoRouterState state) {
-          return const SignupScreen();
-        },
-      ),
-      GoRoute(
-        path: '/home',
-        builder: (BuildContext context, GoRouterState state) {
-          return const HomeScreen();
-        },
-      ),
-    ],
-  );
+  routes: <RouteBase>[
+    GoRoute(
+      path: '/',
+      builder: (BuildContext context, GoRouterState state) {
+        return const SplashScreen();
+      },
+    ),
+    GoRoute(
+      path: '/phone',
+      builder: (BuildContext context, GoRouterState state) {
+        return const PhoneNumberScreen();
+      },
+    ),
+    GoRoute(
+      path: '/signup',
+      builder: (BuildContext context, GoRouterState state) {
+        return const SignupScreen();
+      },
+    ),
+    GoRoute(
+      path: '/home',
+      builder: (BuildContext context, GoRouterState state) {
+        return const HomeScreen();
+      },
+    ),
+  ],
+);
+
 }
